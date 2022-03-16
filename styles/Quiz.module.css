@@ -1,0 +1,34 @@
+.container {
+  padding: 0 2rem;
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+}
+
+.quiz {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid gray;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  font-family: Karla;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.description {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
