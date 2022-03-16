@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+
 import Question from '../../components/question'
+import { decodedString } from '../../utils/string'
 
 import styles from '../../styles/Quiz.module.css'
 
@@ -38,7 +40,7 @@ export default function Quiz() {
   }
 
   function getScore() {
-    return Object.entries(answers).filter(([questionIndex, answer]) => answer == answerMapping[questions[questionIndex].correct_answer]).length
+    return Object.entries(answers).filter(([questionIndex, answer]) => answer === answerMapping[questions[questionIndex].correct_answer]).length
   }
 
   function getLayout() {
@@ -55,6 +57,33 @@ export default function Quiz() {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Quiz complete</h2>
           <p className={styles.description}>{getScore()} out of 10 questions were correctly answered.</p>
+          <div className={styles.questions}>
+          {
+            Object.entries(answers).map(([questionIndex, answer]) => {
+              return (
+                <div key={questionIndex}>
+                  <p className={styles.question}>
+                    <b>
+                      {
+                        `${answer === answerMapping[questions[questionIndex].correct_answer] ? '✅' : '❌'} ` +
+                        `Question ${parseInt(questionIndex) + 1}`
+                      }
+                    </b>
+                    {
+                      `: ${decodedString(questions[questionIndex].question)}`
+                    }
+                    <br />
+                    {
+                      `Your answer: ${answer} ` +
+                      `Correct answer: ${answerMapping[questions[questionIndex].correct_answer]}`
+                    }
+                  </p>
+                </div>
+              )
+            })
+          }
+          </div>
+
           <button className={styles.action} onClick={restartQuiz}>Restart</button>
         </div>
       )

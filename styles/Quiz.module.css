@@ -32,3 +32,15 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
+
+.questions {
+  border: 1px solid grey;
+  text-align: center;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.question {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
